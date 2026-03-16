@@ -23,10 +23,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center; /* Clusters everything in the middle */
+            height: 100dvh; /* Dynamic viewport height prevents mobile scrolling */
             margin: 0;
             overflow: hidden;
             touch-action: manipulation;
+            gap: 2vh; /* Keeps a tight, consistent gap between sections */
         }
 
         /* Header */
@@ -36,8 +38,7 @@
             align-items: center;
             width: 100%;
             max-width: 400px;
-            padding: 5px 15px;
-            border-bottom: 1px solid var(--border);
+            padding: 0 15px;
             box-sizing: border-box;
         }
 
@@ -64,19 +65,20 @@
         #game-board {
             display: grid;
             grid-template-rows: repeat(6, 1fr);
-            grid-gap: 4px;
-            padding: 10px;
+            grid-gap: 5px;
+            padding: 5px;
             box-sizing: border-box;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
+            max-height: 45vh; /* Prevents grid from stretching vertically */
             aspect-ratio: 5/6;
-            margin: auto;
+            margin: 0; 
         }
 
         .row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            grid-gap: 4px;
+            grid-gap: 5px;
         }
 
         .tile {
@@ -84,7 +86,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: bold;
             text-transform: uppercase;
             user-select: none;
@@ -115,9 +117,8 @@
         #keyboard {
             width: 100%;
             max-width: 450px;
-            padding: 5px;
+            padding: 0 5px;
             box-sizing: border-box;
-            padding-bottom: 15px;
         }
 
         .key-row {
@@ -133,7 +134,7 @@
             border: 0;
             padding: 0;
             margin: 0;
-            height: 45px;
+            height: 48px; /* Slightly taller for better tapping */
             border-radius: 4px;
             cursor: pointer;
             user-select: none;
@@ -201,7 +202,7 @@
         .ach-card:hover { transform: scale(1.05); }
         .ach-card.unlocked { opacity: 1; filter: grayscale(0%); }
         .ach-circle { 
-            width: 55px; height: 55px; border-radius: 50%; border: 3px solid #FFD700; /* Gold */
+            width: 55px; height: 55px; border-radius: 50%; border: 3px solid #FFD700;
             display: flex; justify-content: center; align-items: center; 
             background-color: var(--gray); box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
             margin-bottom: 5px; overflow: hidden;
